@@ -39,7 +39,7 @@ public class PassedGradeWindow extends javax.swing.JFrame {
         PassedTable.setModel(model);
         for(int i=1; i<LoginWindow.currentStudent.getSemester().listSize();i++){
             try {
-                semester = LoginWindow.listaSemestres.getSemesterAt(i);
+                semester = LoginWindow.currentStudent.getSemester().getStudentSemesterAt(i).getSemester();
             } catch (Exception ex) {
                 Logger.getLogger(GradeAdministrationWindow.class.getName()).log(Level.SEVERE, null, ex);
             }

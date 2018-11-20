@@ -163,7 +163,8 @@ public class AssignGradeWindow extends javax.swing.JFrame {
             }
             if(!LoginWindow.currentStudent.getSemester().getCurrentGradeList(currentGrade.getSemester()).assigned(currentGrade.getNoGrade(),
                     LoginWindow.currentStudent.getIdStudent())){
-                try {
+                if(LoginWindow.currentStudent.getSemester().getCurrentGradeList(currentGrade.getSemester()).listSize()<4){
+                    try {
                     if(LoginWindow.currentStudent.getSemester().getCurrentGradeList(currentGrade.getSemester()).getClassByGrade(
                             currentGrade.getNoGrade())!=null){
                             LoginWindow.currentStudent.getSemester().getCurrentGradeList(currentGrade.getSemester()).getClassByGrade(
@@ -181,13 +182,17 @@ public class AssignGradeWindow extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Curso asignado correctamente", "Asignado",
                             JOptionPane.INFORMATION_MESSAGE);
                      
-                } catch (Exception ex) {
-                    Logger.getLogger(AssignGradeWindow.class.getName()).log(Level.SEVERE, null, ex);
-                    JOptionPane.showMessageDialog(this, "Hubo un error al asignarse el curso", "Error",
-                            JOptionPane.ERROR_MESSAGE);
+                    } catch (Exception ex) {
+                        Logger.getLogger(AssignGradeWindow.class.getName()).log(Level.SEVERE, null, ex);
+                        JOptionPane.showMessageDialog(this, "Hubo un error al asignarse el curso", "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(this, "No se puede asignar mas de tres cursos por semestre", "Error",
+                        JOptionPane.ERROR_MESSAGE);
                 }
-            }else{
                 
+            }else{   
                 JOptionPane.showMessageDialog(this, "Este curso ya ha sido asignado", "Error",
                         JOptionPane.ERROR_MESSAGE);
             }   

@@ -396,9 +396,9 @@ public class GradeAdministrationWindow extends javax.swing.JFrame {
                     lista.addToFinal(GradeNe, listaCurso);
                     getProfessor(idProf()).getSemester().addToFinal(getSemester(idSemester()), lista);
                 }else{
+                    Grade grade = GradeTableModel.gradesList.getGradeByNumber(Integer.valueOf(noGradeTxt.getText()));
                     getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).addToFinal(
-                            getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).getGradeAt(getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).listSize()-1),
-                            getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).getClass(getProfessor(idProf()).getCarnet()));
+                            grade, listaCurso);
                 }
                 
                 CurrentGradeTableModel.currentGradeList.addToFinal(GradeTableModel.gradesList.getGradeAt(GradeTableModel.gradesList.listSize()-1), listaCurso);
@@ -414,9 +414,9 @@ public class GradeAdministrationWindow extends javax.swing.JFrame {
                     lista.addToFinal(GradeNe, listaCurso);
                     getProfessor(idProf()).getSemester().addToFinal(getSemester(idSemester()), lista);
                 }else{
+                    Grade grade = GradeTableModel.gradesList.getGradeByNumber(Integer.valueOf(noGradeTxt.getText()));
                     getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).addToFinal(
-                            getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).getGradeAt(getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).listSize()-1),
-                            getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).getClass(getProfessor(idProf()).getCarnet()));
+                            grade, listaCurso);
                 }
             }else if(idPostRe()!=0){
                 GradeTableModel.gradesList.addToFinal(getSemester(idSemester()),Integer.valueOf(noGradeTxt.getText()), nameTxt.getText(), getProfessor(idProf()), Integer.valueOf(creditsTxt.getText()), getLaboratory(),
@@ -427,9 +427,9 @@ public class GradeAdministrationWindow extends javax.swing.JFrame {
                     lista.addToFinal(GradeNe, listaCurso);
                     getProfessor(idProf()).getSemester().addToFinal(getSemester(idSemester()), lista);
                 }else{
+                    Grade grade = GradeTableModel.gradesList.getGradeByNumber(Integer.valueOf(noGradeTxt.getText()));
                     getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).addToFinal(
-                            getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).getGradeAt(getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).listSize()-1),
-                            getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).getClass(getProfessor(idProf()).getCarnet()));
+                            grade, listaCurso);
                 }
             }else{
                 GradeTableModel.gradesList.addToFinal(getSemester(idSemester()),Integer.valueOf(noGradeTxt.getText()), nameTxt.getText(), getProfessor(idProf()), Integer.valueOf(creditsTxt.getText()), getLaboratory(),
@@ -440,9 +440,9 @@ public class GradeAdministrationWindow extends javax.swing.JFrame {
                     lista.addToFinal(GradeNe, listaCurso);
                     getProfessor(idProf()).getSemester().addToFinal(getSemester(idSemester()), lista);
                 }else{
+                    Grade grade = GradeTableModel.gradesList.getGradeByNumber(Integer.valueOf(noGradeTxt.getText()));
                     getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).addToFinal(
-                            getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).getGradeAt(getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).listSize()-1),
-                            getProfessor(idProf()).getSemester().getListaCursos(getSemester(idSemester())).getClass(getProfessor(idProf()).getCarnet()));
+                            grade, listaCurso);
                 }
             }
             JOptionPane.showMessageDialog(this, "Curso agregado correctamente", "Agregado",

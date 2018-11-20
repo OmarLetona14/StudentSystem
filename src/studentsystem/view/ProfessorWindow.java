@@ -26,6 +26,7 @@ import studentsystem.model.Student;
 public class ProfessorWindow extends javax.swing.JFrame {
     
     public static Grade currentGrade = null;
+    Grade grade = null;
     CurrentGradeTableModel model = new CurrentGradeTableModel();
     public static Semester currSemester =null;
     public static Student student = null;
@@ -79,15 +80,15 @@ public class ProfessorWindow extends javax.swing.JFrame {
         });
         
         try {
-            for(int i=0; i<LoginWindow.currentProfessor.getSemester().getListaCursos(currSemester).listSize();i++){
-                Grade currentGrade = null;
+            
+            for(int i=1; i<LoginWindow.currentProfessor.getSemester().getListaCursos(currSemester).listSize();i++){
                 try {
-                    currentGrade = LoginWindow.currentProfessor.getSemester().getListaCursos(currSemester).getGradeAt(i);
+                    grade = LoginWindow.currentProfessor.getSemester().getListaCursos(currSemester).getGradeAt(i);
                 } catch (Exception ex) {
                     Logger.getLogger(GradeAdministrationWindow.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                if(currentGrade!=null){
-                    cbGrade.addItem(currentGrade.getName());
+                if(grade!=null){
+                    cbGrade.addItem(grade.getName());
                 }
             }
         } catch (Exception ex) {
@@ -266,8 +267,8 @@ public class ProfessorWindow extends javax.swing.JFrame {
         return GradeTableModel.gradesList.getGradeAt(idRef);
     }
     public int idRef(){
-        if(!cbGrade.getSelectedItem().equals("")){
-            Grade currentG = GradeTableModel.gradesList.getGradeByName(String.valueOf(cbGrade.getSelectedItem()));
+        if(!cbGrade.getSelectedItem().equals("")){       
+            Grade currentG = LoginWindow.currentProfessor.getSemester().getListaCursos(currSemester).getGradeByName(String.valueOf(cbGrade.getSelectedItem()));
             return currentG.getIdGrade();
         }else{
             return 0;

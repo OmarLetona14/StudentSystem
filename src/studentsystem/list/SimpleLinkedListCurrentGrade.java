@@ -187,6 +187,18 @@ public class SimpleLinkedListCurrentGrade {
         passed = false;
         return null;
     }
+     
+     public Grade getGradeByName(String name){
+        CurrentGradeNodo aux = first;
+        while(aux != null){
+            if(name.equals(aux.info.getGrade().getName())){
+                return aux.info.getGrade();
+            }else{
+                aux = aux.sig;
+            }
+        }
+        return null;
+    }
     
     public Assigned getAssignedByGradeProfessor(int idRef, String carnet, int noGrade) throws Exception{
         CurrentGradeNodo aux = first;

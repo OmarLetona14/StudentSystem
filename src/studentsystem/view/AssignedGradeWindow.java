@@ -47,7 +47,7 @@ public class AssignedGradeWindow extends javax.swing.JFrame {
 
             CurrentGradeStudentTableModel model = new CurrentGradeStudentTableModel();
             AssignedTable.setModel(model);
-            for(int i=1; i<LoginWindow.listaSemestres.listSize();i++){
+            for(int i=1; i<LoginWindow.currentStudent.getSemester().listSize();i++){
                 try {
                     semester = LoginWindow.currentStudent.getSemester().getStudentSemesterAt(i).getSemester();
                 } catch (Exception ex) {

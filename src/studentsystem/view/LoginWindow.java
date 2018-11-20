@@ -30,6 +30,9 @@ public class LoginWindow extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        if(listaSemestres.getSemesterByName("Segundo Semestre 2018")==null){
+            listaSemestres.addToFinal("Segundo Semestre 2018");
+        } 
     }
 
     /**
@@ -142,7 +145,7 @@ public class LoginWindow extends javax.swing.JFrame {
           this.dispose();
           StudentWindow s = new StudentWindow();
           s.setVisible(true);
-        }else if(carneTxt.getText().equals("") && password.equals("")){
+        }else if(carneTxt.getText().equals("admin") && password.equals("password")){
             JOptionPane.showMessageDialog(this, "Bienvenido admin", "Bienvenido",
                     JOptionPane.INFORMATION_MESSAGE);
             AdministratorWindow administratorWindow = new AdministratorWindow();
